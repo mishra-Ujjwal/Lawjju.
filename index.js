@@ -74,7 +74,10 @@ page2Boxes.forEach((box)=>{
   const image = box.querySelector("img");
 
   box.addEventListener("mouseenter", function() {
-    cursorText.style.display = "block";
+    cursorText.style.display="block";
+    cursor.style.backgroundColor="white";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.cursor = "pointer";
     gsap.to(cursor, { scale: 7 });
     gsap.to(image, { opacity: 1 });
   });
@@ -92,13 +95,54 @@ page2Boxes.forEach((box)=>{
   });
 
   box.addEventListener("mouseleave", function() {
-    cursorText.style.display = "none";
-    gsap.to(cursor,{
-         scale: 1 
-        });
+    cursorText.style.display="none";
+    cursor.style.mixBlendMode = "difference";
     gsap.to(image,{
-         opacity: 0 
+         opacity: 0
         });
+    gsap.to(cursor,{
+         scale: 1, 
+        });
+    
   });
 });
 
+if(window.innerWidth<=500){
+  var page2Boxes = document.querySelectorAll(".box")
+page2Boxes.forEach((box)=>{
+  const image = box.querySelector("img");
+   image.style.width="200px";
+  box.addEventListener("mouseenter", function() {
+    cursorText.style.display="block";
+    cursor.style.backgroundColor="white";
+    cursor.style.mixBlendMode = "normal";
+    cursor.style.cursor = "pointer";
+    gsap.to(cursor, { scale: 3.5 });
+    gsap.to(image, { opacity: 1 });
+  });
+
+  box.addEventListener("mousemove", function(e) {
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.x - 100;
+    const y = e.clientY - rect.y -75;
+
+    gsap.to(image, {
+      x: x,
+      y: y,
+      duration: 0.3
+    });
+  });
+
+  box.addEventListener("mouseleave", function() {
+    cursorText.style.display="none";
+    cursor.style.mixBlendMode = "difference";
+    gsap.to(image,{
+         opacity: 0
+        });
+    gsap.to(cursor,{
+         scale: 1, 
+        });
+    
+  });
+});
+}

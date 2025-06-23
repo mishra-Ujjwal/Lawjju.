@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-     user-select: none;
+    user-select: none;
 }
 
 html,
@@ -12,7 +12,8 @@ body {
     color: white;
     font-family: Outfit;
 }
-.cursor{
+
+.cursor {
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
     display: none;
     height: 13px;
@@ -20,20 +21,25 @@ body {
     background-color: white;
     border-radius: 50%;
     position: fixed;
-    z-index: 100;
+    z-index: 9999;
     pointer-events: none;
     mix-blend-mode: difference;
 }
-.cursor .text{
+
+.cursor .text {
+    opacity: 0.8;
     position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-size: 12px;
-  font-weight: bold;
-  display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 2px;
+    font-weight: 400;
+    display: none;
+    z-index: 15;
+    cursor: pointer;
 }
+
 .main {
     position: relative;
 }
@@ -78,26 +84,29 @@ nav .menu h1 {
 }
 
 .page1-left h1:nth-of-type(1) {
-    
+
     width: 100%;
     font-size: 7.5vw;
     line-height: 0.9;
     font-weight: 500;
-    
+
 }
-.page1-left h1:nth-of-type(2){
+
+.page1-left h1:nth-of-type(2) {
     width: 117%;
     font-size: 7.5vw;
     line-height: 0.9;
     font-weight: 500;
     overflow: hidden;
 }
-.page1-left .head1{
+
+.page1-left .head1 {
     height: 6.5vw;
 
     overflow: hidden;
 }
-.page1-left .head2{
+
+.page1-left .head2 {
     margin-left: 17%;
     height: 6.5vw;
 
@@ -183,18 +192,17 @@ nav .menu h1 {
 }
 
 .page1-right img {
-    background-color: purple;
     width: 100%;
     height: 100%;
     display: block;
     object-fit: contain;
     transform: scale(1.8);
-    filter: grayscale(1);
+    filter: grayscale(0);
     transition: all 0.3s ease;
 }
 
 .page1-right img:hover {
-    filter: grayscale(0.4);
+    filter: grayscale(1);
 }
 
 .page2 {
@@ -214,13 +222,16 @@ nav .menu h1 {
     padding: 3vw 0;
     border-top: 1px solid rgb(255, 255, 255);
 }
-.page2 .box img{
+
+.page2 .box img {
+    border-radius: 3vw;
     position: absolute;
     width: 400px;
     z-index: 10;
     top: 0;
     left: 0;
     opacity: 0;
+    pointer-events: none;
 }
 
 .page2 .box h1 {
@@ -236,7 +247,6 @@ sup {
 
 .page2 button {
     cursor: pointer;
-
     padding: 0.5vw 1.5vw;
     border-radius: 20px;
     background-color: transparent;
@@ -298,7 +308,6 @@ sup {
 }
 
 .about {
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -308,7 +317,6 @@ sup {
 .about-left {
     height: 100%;
     width: 26%;
-
 }
 
 .about-left img {
@@ -320,7 +328,6 @@ sup {
 .about-right {
     height: 100%;
     width: 50%;
-
 }
 
 .about-right h3 {
@@ -367,4 +374,102 @@ a {
 .socialmedia {
     display: flex;
     gap: 1vw;
+}
+
+@media (min-width: 481px) and (max-width: 768px)  {
+    nav {
+        padding: 2vw 9vw;
+    }
+
+    nav .logo h1 {
+        font-size: 5vw;
+    }
+
+    nav .menu h1 {
+        font-weight: 300;
+        font-size: 3vw;
+    }
+    .page1 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 10vw;
+    padding-top: 10vw;
+}
+.page1-left {
+    opacity: 0.7;
+    scale: 1.5;
+    padding: 0vw 8vw;
+    padding-top: 12vw;
+    padding-left: 2vw;
+}
+.page1-right {
+    padding-top: 200px;
+    width: 90%;
+    
+    overflow: hidden;
+}
+.page2{
+    padding-top: 15vw;
+   min-height: 70vh;
+
+}
+ .page2 .box img {
+    border-radius: 3vw;
+    position: absolute;
+    width: 400px;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    
+}
+.movingdiv{
+    margin-top: 15vw ;
+    width: 100%;
+    padding-bottom: 5vw;
+}
+.movingdiv img{
+    height: 40px;
+}
+.page2 button{
+    scale: 0.7;
+}
+.page3{
+
+   height: 100vh;
+}
+.page3 .about{
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.about-left {
+    height: 100%;
+    width: 50%;
+}
+.about-right{
+    width: 100%;
+    background-color: black;
+}
+.about-right h3{
+    font-size: 10vw;
+}
+.about-right p {
+    font-size: 3.5vw;
+    text-transform: capitalize;
+}
+.about-right button{
+    font-size: 3vw;
+}
+.footer p{
+    font-size: 3vw;
+}
+.socialmedia{
+    font-size: 2vw;
+}
 }
