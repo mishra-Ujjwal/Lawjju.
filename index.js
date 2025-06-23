@@ -107,11 +107,11 @@ page2Boxes.forEach((box)=>{
   });
 });
 
-if(window.innerWidth<=500){
+if(window.innerWidth>=400 && window.innerWidth<=768){
   var page2Boxes = document.querySelectorAll(".box")
 page2Boxes.forEach((box)=>{
   const image = box.querySelector("img");
-   image.style.width="200px";
+   image.style.width="45vw";
   box.addEventListener("mouseenter", function() {
     cursorText.style.display="block";
     cursor.style.backgroundColor="white";

@@ -376,7 +376,7 @@ a {
     gap: 1vw;
 }
 
-@media (min-width: 481px) and (max-width: 768px)  {
+@media (min-width: 400px) and (max-width: 768px)  {
     nav {
         padding: 2vw 9vw;
     }
